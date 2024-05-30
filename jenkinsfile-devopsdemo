@@ -1,0 +1,22 @@
+pipeline {
+  agent {
+      label 'worker2'
+      }
+  tool {
+      name: 'Maven-3.9.7', 
+      type: 'maven'
+    }
+
+    stages {
+        stage('Checkout GIT') {
+            steps {
+                git branch: 'main', url: 'https://github.com/ostwalanandjain/samplecode.git'
+            }
+        }
+       stage('Buid and Test') {
+          steps{
+              sh 'mvn install'
+          }
+       }
+    }
+}
