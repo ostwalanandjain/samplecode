@@ -2,7 +2,9 @@ pipeline {
   agent {
       label 'worker2'
       }
-  tool name: 'Maven-3.9.7', type: 'maven'
+  tools { 
+     maven 'Maven-3.9.7'
+   }
 
     stages {
         stage('Checkout GIT') {
