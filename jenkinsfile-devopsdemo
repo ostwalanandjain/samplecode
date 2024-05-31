@@ -22,13 +22,11 @@ pipeline {
           }
         }
        }
- stage('sonarscan'){
+      stage('sonarscan'){
           withSonarQubeEnv('sonarqube_creds'){
               sh 'mvn sonar:sonar'
 
-
-
           }
-}
+        }
     }
 }
