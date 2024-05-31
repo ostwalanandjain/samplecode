@@ -22,11 +22,14 @@ pipeline {
           }
         }
        }
-      stage('sonarscan'){
-          withSonarQubeEnv('sonarqube_creds'){
-              sh 'mvn sonar:sonar'
-
-          }
+      stage('SonarQube Analysis'){
+            steps{
+                   withSonarQubeEnv('sonarqube') {
+                        sh 'mvn clean verify sonar:sonar \
+                        -Dsonar.host.url=$sonarurl \
+                        -Dsonar.login=$sonarlogin'
+                    }
+            }
         }
     }
 }
