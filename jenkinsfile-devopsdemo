@@ -22,12 +22,5 @@ pipeline {
           }
         }
        }
-      stage('SonarQube Analysis'){
-            steps{
-                   withSonarQubeEnv('sonarqube_creds') {
-                        sh 'mvn sonar:sonar'
-                    }
-            }
-        }
     }
 }
