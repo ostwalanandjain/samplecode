@@ -22,7 +22,7 @@ pipeline {
           }
         }
        }
-      stage('SonarQube Analysis) {
+      stage('SonarQube Analysis') {
           steps{
               withSonarQubeEnv('sonarqube_creds')
               sh 'mvn sonar:sonar'
