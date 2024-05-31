@@ -25,9 +25,7 @@ pipeline {
       stage('SonarQube Analysis'){
             steps{
                    withSonarQubeEnv('sonarqube_creds') {
-                        sh 'mvn clean verify sonar:sonar \
-                        -Dsonar.host.url=$sonarurl \
-                        -Dsonar.login=$sonarlogin'
+                        sh 'mvn clean verify sonar:sonar
                     }
             }
         }
